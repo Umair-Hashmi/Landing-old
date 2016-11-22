@@ -200,7 +200,7 @@
   var stateUrl = '/' + main + '-' + type.toLowerCase();
   var views = {
     'jobview': {
-      template: '<active-jobs layout="column" flex></active-jobs>'
+      template: '<active-jobs></active-jobs>'
     }
 
   };

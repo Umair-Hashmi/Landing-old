@@ -151,7 +151,7 @@
   var stateUrl = '/' + main + '-' + type.toLowerCase();
   var views = {
     'jobview': {
-      template: '<assigned-jobs layout="column" flex></assigned-jobs>'
+      template: '<assigned-jobs></assigned-jobs>'
     }
 
   };

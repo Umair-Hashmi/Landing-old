@@ -1,4 +1,16 @@
 #dashboard-customer {
+    
+    height: 100%;
+    .sidenav-button-position {
+        position: absolute;
+        right: 10px;
+        z-index: 50;
+        top: 3px;
+
+        md-icon {
+            color: #a9a9a9;
+        }
+    }
     >.center {
         >.header {
             height: 160px;
@@ -22,6 +34,7 @@
                 }
             }
         }
+
         >.content {
             background: none;
             padding: 0;
@@ -153,7 +166,6 @@
                 width: 100% !important;
                 height: 100% !important;
                 min-height: 100% !important;
-                margin-top: 20px !important;
                 margin-bottom: 0 !important;
                  
               }

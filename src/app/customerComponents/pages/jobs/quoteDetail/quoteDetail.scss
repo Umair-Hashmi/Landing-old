@@ -9,7 +9,11 @@
   
 }
 
+
 #quote-detail {
+    top: -60px;
+    position: relative;
+    
 
    #quote-owner {
 
@@ -81,3 +85,9 @@
             background-repeat: no-repeat;
         }
  }
+
+  @media (max-width: 768px) {
+         #quote-detail {
+           top: 0;
+         }
+  }

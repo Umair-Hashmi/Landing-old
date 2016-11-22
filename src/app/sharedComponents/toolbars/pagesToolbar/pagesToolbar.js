@@ -4,7 +4,7 @@
   var main = 'pages'; // Change this with containing folder name
   var type = 'Toolbar'; // Change This with Component functionality Detail, Add, Remove, Delete, List etc.
 
-  function ControllerFunction($scope,$reactive,AuthModals,jobService) {
+  function ControllerFunction($scope,$reactive,AuthModals,jobService,$mdSidenav) {
     'ngInject';
     ///////////Data///////////
     var self = this;
@@ -22,6 +22,7 @@
     ///////////Methods Declarations///////////
     self.openLogin = openLogin;
     self.openServiceListDialog=openServiceListDialog;
+    self.toggleHorizontalMobileMenu=toggleHorizontalMobileMenu;
 
 
     ///////////Method Definitions///////////
@@ -31,7 +32,9 @@
     function openLogin(event){
       AuthModals.openLoginModal(event);
     }
-
+function toggleHorizontalMobileMenu(){
+      $mdSidenav('landing-sidenav').toggle();
+    }
 
    
   }

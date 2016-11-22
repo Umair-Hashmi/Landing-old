@@ -1,20 +1,26 @@
-<div id="questions-toolbar" layout="column" layout-align="space-between stretch" du-scroll-container="content">
-    <div class="top-row" layout="row" layout-align="space-between center">
-
-        <div layout="row" layout-align="start center">
-            <div class="navigation-toggle" hide-gt-sm>
-                <md-button class="md-icon-button" ng-click="vm.toggleHorizontalMobileMenu()" aria-label="Toggle Mobile Navigation">
+<div id="landing-toolbar" layout="column" layout-align="space-between stretch" du-scroll-container="content">
+       
+            <div class="navigation-toggle" layout="row" layout-align="start center" flex>
+                <md-button class="md-icon-button" ng-click="pagesToolbar.toggleHorizontalMobileMenu()"
+                           aria-label="Toggle Mobile Navigation">
                     <md-icon md-font-icon="icon-menu"></md-icon>
                 </md-button>
-            </div>
-            <div class="logo" layout="row" layout-align="end center">
-                <a href="/" du-smooth-scroll>
-                    <span class="logo-image">Fix</span>
-                </a>
-                <!--<span class="logo-text">onClick</span>-->
-            </div>
-            <div class="toolbar-separator"></div>
-        </div>
+            <div class="logo" layout="row" layout-align="end center" flex>
+            <a href="#header" du-smooth-scroll>
+              <span class="logo-image">Fix</span>
+            </a>
+              <!--<span class="logo-text">on Click</span>-->
+          </div>
+             </div>
+            
+    <div class="top-row" layout="row" layout-align="space-between center">
+        <div class="logo" layout="row" layout-align="start center">
+            <a href="#header" du-smooth-scroll>
+              <span class="logo-image">Fix</span>
+            </a>
+              <span class="logo-text">on Click</span>
+          </div>
+
         <div layout="row" ng-show="pagesToolbar.isLoggedIn">
             <div class="toolbar-separator"></div>
             <div ui-sref-active="foc-nav-active">

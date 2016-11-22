@@ -69,7 +69,8 @@
   var controller = ControllerFunction;
   angular
     .module(name, [
-      'customerDashboard'
+      'customerDashboard',
+      'landingNavbar'
     ])
     .component(name, {
       templateUrl: templateUrl,
