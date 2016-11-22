@@ -5,7 +5,7 @@
     <!-- / TOP BACKGROUND -->
 
     <!-- CENTER -->
-    <div class="center" flex>
+    <div class="center" layout="column" flex>
 
         <!-- CONTENT HEADER -->
         <div class="header">
@@ -14,32 +14,13 @@
         <!-- / CONTENT HEADER -->
 
         <!-- CONTENT CARD -->
-        <div class="content-card">
+        <div class="content-card" layout="column" flex>
         
             <!-- CONTENT TOOLBAR -->
-            <div class="toolbar" layout="row" layout-align="start center">
+            <div class="toolbar" layout="row" layout-align="space between center">
                 <h2 class="md-primary">Job Detail</h2>
-            </div>
-            <!-- / CONTENT TOOLBAR -->
-
-            <!-- CONTENT -->
-            <md-content class="content" ms-scroll>
-                <md-backdrop class="md-opaque" ng-if="assignedJob.loading" >
-                    <span style="position:absolute;top:50%;left:50%;">  
-                    Loading...
-                    </span>
-                    <md-progress-circular 
-                            style="position:absolute;top:55%;left:50%;"
-                            class="md-primary"       
-                            md-diameter="45"
-                            aria-label="loading">
-                    </md-progress-circular>
-                </md-backdrop>
-                <div ng-if="!assignedJob.loading">
-                    <div class="top-image"></div>
-
-                    <div layout-gt-sm="row" layout-align-gt-sm="space between center" layout="column" layout-align="center center">
-                        <h1 class="text-truncate">Title: {{assignedJob.job.title || "Job Title..."}}</h1>
+                <div layout-gt-sm="row" layout-align-gt-sm="space between center" layout="column" layout-align="center center">
+                        
                         <div ng-if="assignedJob.quote.status==='accepted'">
                             <md-button ng-click="assignedJob.acceptProject($event)"
                                     id="accept-job"
@@ -72,11 +53,68 @@
                         </div>
 
                     </div>
+            </div>
+            <!-- / CONTENT TOOLBAR -->
+
+            <!-- CONTENT -->
+            <md-content class="content" ms-scroll flex>
+                <md-backdrop class="md-opaque" ng-if="assignedJob.loading" layout="column" layout-align="center center">
+                    <span>  
+                    Loading...
+                    </span>
+                    <md-progress-circular 
+                            style="top: 5px;left: -25px; height: 45px;"
+                            class="md-primary"       
+                            md-diameter="45"
+                            aria-label="loading">
+                    </md-progress-circular>
+                </md-backdrop>
+                <div id="quote-detail" ng-if="!assignedJob.loading">
+                      <div class="header-tint"></div>
+                        <div class="header-image toggle" ng-cloak>
+                        </div>
+                        <div id="quote-owner" class="p-8" layout="row" flex>
+                            <div layout="column" layout-align-gt-xs="center start" layout-align-xs="start start" flex class="quote-detail-name">
+                            <div class="name" layout="column" layout-align="center center">
+                                <thumb-image ng-show="assignedJob.customer.profile.dpThumbUrl" size="96" image-id="assignedJob.customer.profile.dpImageId" image-class="circle image80"></thumb-image>
+                                <!--<img src="assignedJob.user.profile.bgImage.url || 'defaultimage.jpg'" alt="">-->
+                                <div layout="column" layout-align="center  center">
+                                <span class="text-truncate"> {{assignedJob.customer.profile.name}}</span>
+                                <span class="text-truncate organization">{{assignedJob.user.business.organization}}
+                                        </span>
+                                <div layout="row" layout-align="center center">
+                                    <md-icon class="marker" md-font-icon="icon-map-marker" layout="row"></md-icon>
+                                    <span layout="row">
+                                                128 Km Away
+                                            </span>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div layout="column" layout-align-gt-xs="center center" layout-align-xs="end center">
+                            <div layout="column" layout-align="start center">
+                                <span class="bid quote-detail-name">You Quoted<br />AED {{assignedJob.quote.quotedValue}}</span>
+                            </div>
+                            </div>
+  
+                        </div>
+
+                    
                     
 
-                    <div>
-                        
+                                   <div layout="row" layout-xs="column" flex>
+                    <div layout="column" layout-padding flex class="content-area">
+                       
+                        <!--<div class="subject" flex>
+                            {{jobDetail.job.title}}<br>
+                            <span>{{jobDetail.job.detail}}</span>
+
+                        </div>-->
+                        <project-summary current-project="assignedJob.job" show-gallery="true" flex></project-summary>
+                    <!--<project-gallery ng-show="jobDetail.job.images.length>0" class="slide-top" images="jobDetail.job.images" readonly="true" flex></project-gallery>-->
                     </div>
+                    
+                </div>
 
                     <blockquote ng-if="assignedJob.job.detail">
                         <div ta-bind ng-model="assignedJob.quote.quoteMessage">                            
@@ -86,13 +124,13 @@
                         </footer>
                     </blockquote>
 
-                <div>
+                <!--<div>
                     <pre>
                         {{assignedJob.quote|json:4}}
                         {{assignedJob.customer|json:4}}   
                         {{assignedJob.job|json:4}}
                     </pre>
-                </div>
+                </div>-->
 
                 </div>
 
