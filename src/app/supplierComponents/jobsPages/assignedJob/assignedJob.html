@@ -69,8 +69,9 @@
                             aria-label="loading">
                     </md-progress-circular>
                 </md-backdrop>
-                <div id="quote-detail" ng-if="!assignedJob.loading">
-                      <div class="header-tint"></div>
+                <div ng-if="!assignedJob.loading">
+                  <div id="quote-detail">
+                       <div class="header-tint"></div>
                         <div class="header-image toggle" ng-cloak>
                         </div>
                         <div id="quote-owner" class="p-8" layout="row" flex>
@@ -98,11 +99,12 @@
                             </div>
   
                         </div>
+                  </div>
 
                     
                     
 
-                                   <div layout="row" layout-xs="column" flex>
+                <div  id="job-detail" layout="row" layout-xs="column" flex>
                     <div layout="column" layout-padding flex class="content-area">
                        
                         <!--<div class="subject" flex>
